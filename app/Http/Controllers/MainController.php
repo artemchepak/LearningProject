@@ -10,7 +10,7 @@ class MainController extends Controller
         return view('home');
     }
 
-    public function category($category){
-        return view('category', ['category' => $category]);
+    public function category($id){
+        return view('category', ['category' => $id]);
     }
 }
