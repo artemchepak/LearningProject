@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::redirect('/home', '/');
-Route::view('/', 'home')->name('home');
+Route::redirect('/', '/notes')->name('home');
 
 //Route::get('/notes', [NoteController::class, 'index'])->name('notes');
 //Route::get('/notes/create', [NoteController::class, 'create'])->name('notes.create');
