@@ -8,78 +8,66 @@ use Illuminate\Http\Request;
 class MovieCategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $categories = MovieCategory::all();
+        return view('categories.categories', compact('categories'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('categories.create-category');
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $category = new MovieCategory();
+        $category->name = $request->input('name');
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\MovieCategory  $movieCategory
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function show(MovieCategory $movieCategory)
+    public function edit($id)
     {
-        //
+        $category = MovieCategory::find($id);
+        return view('categories.edit-category', compact('category'));
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\MovieCategory  $movieCategory
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function edit(MovieCategory $movieCategory)
+    public function update(Request $request, $id)
     {
-        //
+        $category = MovieCategory::find($id);
+        $category->name = $request->input('name');
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MovieCategory  $movieCategory
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, MovieCategory $movieCategory)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MovieCategory  $movieCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(MovieCategory $movieCategory)
-    {
-        //
+        MovieCategory::find($id)->delete();
+        return redirect()->route('categories.index');
     }
 }

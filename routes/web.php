@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MovieCategoryController;
 use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MovieController::class, 'index'])->name('home');
-
 Route::resource('movies', MovieController::class);
+Route::resource('categories', MovieCategoryController::class);

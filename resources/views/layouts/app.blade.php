@@ -23,12 +23,12 @@
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="{{route('home')}}" class="nav-link px-2 text-white">All movies</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Categories</a></li>
+                <li><a href="{{route('categories.index')}}" class="nav-link px-2 text-white">Categories</a></li>
             </ul>
 
             <div class="text-end">
                 <a href="{{route('movies.create')}}" type="button" class="btn btn-warning">Add movie</a>
-                <a href="#" type="button" class="btn btn-secondary">Add category</a>
+                <a href="{{route('categories.create')}}" type="button" class="btn btn-secondary">Add category</a>
             </div>
         </div>
     </div>
