@@ -28,6 +28,7 @@
 
             <div class="text-end">
                 <a href="{{route('movies.create')}}" type="button" class="btn btn-warning">Add movie</a>
+                <a href="#" type="button" class="btn btn-secondary">Add category</a>
             </div>
         </div>
     </div>
