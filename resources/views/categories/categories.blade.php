@@ -26,7 +26,7 @@
                         @method('DELETE')
                         <input class="btn btn-danger" type="submit" value="Delete">
                     </form>
-                    <a href="#" class="btn btn-primary">Movie list</a>
+                    <a href="{{route('movie.by.category', $category->id)}}" class="btn btn-primary">Movie list</a>
                 </td>
 
             </tr>

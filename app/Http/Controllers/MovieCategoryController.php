@@ -70,4 +70,10 @@ class MovieCategoryController extends Controller
         MovieCategory::find($id)->delete();
         return redirect()->route('categories.index');
     }
+
+    public function getAllMoviesByCategory($id){
+        $category = MovieCategory::find($id);
+        $movies = $category->movies;
+        return view('movies.all-movies-by-category', compact('movies'));
+    }
 }
