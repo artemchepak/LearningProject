@@ -15,13 +15,13 @@ class MovieCategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            ['name' => 'Drama'],
-            ['name' => 'Crime'],
-            ['name' => 'Action'],
-            ['name' => 'Fantasy'],
-            ['name' => 'Sci-Fi'],
-            ['name' => 'Comedy'],
-            ['name' => 'Adventures']
+            ['name' => 'Drama',],
+            ['name' => 'Crime',],
+            ['name' => 'Action',],
+            ['name' => 'Fantasy',],
+            ['name' => 'Sci-Fi',],
+            ['name' => 'Comedy',],
+            ['name' => 'Adventures',]
         ];
 
         MovieCategory::insert($categories);

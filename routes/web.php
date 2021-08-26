@@ -21,10 +21,16 @@ Route::resource('categories', MovieCategoryController::class);
 Route::get('/movies/category/{id}', [MovieCategoryController::class, 'getAllMoviesByCategory'])->name('movie.by.category');
 
 Route::get('/test', function () {
-    $movie = \App\Models\Movie::find(12);
-    echo $movie->title . ', ';
-    foreach ($movie->categories as $category){
-        echo $category->name;
+//    $movie = \App\Models\Movie::find(12);
+//    echo $movie->title . ', ';
+//    foreach ($movie->categories as $category){
+//        echo $category->name;
+//    }
+
+    $category = \App\Models\MovieCategory::find(2);
+    echo $category->name . ':<br>';
+    foreach ($category->movies as $movie) {
+     echo $movie->title;
     }
 
 });

@@ -16,9 +16,9 @@ class CreateMovieMovieCategoryTable extends Migration
         Schema::create('movie_movie_category', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('movie_id');
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('movie_category_id');
             $table->foreign('movie_id')->references('id')->on('movies');
-            $table->foreign('category_id')->references('id')->on('movie_categories');
+            $table->foreign('movie_category_id')->references('id')->on('movie_categories');
         });
     }
 

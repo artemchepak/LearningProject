@@ -10,6 +10,6 @@ class MovieCategory extends Model
     use HasFactory;
 
     public function movies(){
-        return $this->belongsToMany(Movie::class, 'movie_movie_category', 'category_id', 'movie_id');
+        return $this->belongsToMany(Movie::class);
     }
 }
