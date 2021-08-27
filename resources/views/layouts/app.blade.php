@@ -43,7 +43,7 @@
                             </li>
                         @endif
                     @else
-                        @if(Auth::user()->name == 'Admin')
+                        @if(\App\Models\User::where('name', \Illuminate\Support\Facades\Auth::user()->name)->first()->roles->first()->name == 'admin')
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin_panel') }}">Admin panel</a>
                         </li>

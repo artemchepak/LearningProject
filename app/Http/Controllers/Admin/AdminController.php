@@ -7,7 +7,7 @@ use App\Models\Movie;
 use App\Models\MovieCategory;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class AdminController extends Controller
 {
     public function index(){
         $moviesCount = Movie::all()->count();

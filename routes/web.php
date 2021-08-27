@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MovieCategoryController;
-use App\Http\Controllers\MovieController;
+use App\Http\Controllers\Admin\MovieCategoryController;
+use App\Http\Controllers\Admin\MovieController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::redirect('/home', '/');
@@ -22,11 +23,9 @@ Route::get('/movies/category/{id}', [HomeController::class, 'getAllMoviesByCateg
 Route::get('/movies/{id}', [HomeController::class, 'showMovie'])->name('showMovie');
 Route::get('/categories', [HomeController::class, 'categories'])->name('categories');
 
-
-Auth::routes();
-
 Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
-    Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_panel');
+    Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin_panel');
     Route::resource('movies', MovieController::class);
     Route::resource('categories', MovieCategoryController::class);
 });
+
