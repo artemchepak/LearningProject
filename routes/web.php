@@ -21,19 +21,14 @@ Route::resource('movies', MovieController::class);
 Route::resource('categories', MovieCategoryController::class);
 Route::get('/movies/category/{id}', [MovieCategoryController::class, 'getAllMoviesByCategory'])->name('movie.by.category');
 
-Route::get('/test', function () {
-//    $movie = \App\Models\Movie::find(12);
-//    echo $movie->title . ', ';
-//    foreach ($movie->categories as $category){
-//        echo $category->name;
-//    }
-
-    $category = \App\Models\MovieCategory::find(2);
-    echo $category->name . ':<br>';
-    foreach ($category->movies as $movie) {
-     echo $movie->title;
-    }
-
-});
 
 Auth::routes();
+
+Route::get('test', function (){
+    return 123;
+});
+
+Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
+    Route::resource('/', \App\Http\Controllers\Admin\HomeController::class);
+});
+
