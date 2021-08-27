@@ -27,8 +27,8 @@
             </ul>
 
             <div class="text-end">
-                <a href="{{route('movies.create')}}" type="button" class="btn btn-warning">Add movie</a>
-                <a href="{{route('categories.create')}}" type="button" class="btn btn-secondary">Add category</a>
+                <a href="{{route('login')}}" class="text-white mx-3">Login</a>
+                <a href="{{route('register')}}" class="text-white">Registration</a>
             </div>
         </div>
     </div>
