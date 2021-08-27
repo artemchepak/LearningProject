@@ -13,7 +13,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return view('home', compact('movies'));
+        return view('admin.movies.index', compact('movies'));
     }
 
     /**
@@ -21,7 +21,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('movies.create');
+        return view('admin.movies.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class MovieController extends Controller
     public function show($id)
     {
         $movie = Movie::find($id);
-        return view('movies.one-movie', compact('movie'));
+        return view('admin.movies.one-movie', compact('movie'));
     }
 
     /**
@@ -58,7 +58,7 @@ class MovieController extends Controller
     public function edit($id)
     {
         $movie = Movie::find($id);
-        return view('movies.update', compact('movie'));
+        return view('admin.movies.edit', compact('movie'));
     }
 
     /**

@@ -1,8 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 
-@section('title')
-    Create category
-@endsection
+@section('title', 'Main page')
 
 @section('content')
 

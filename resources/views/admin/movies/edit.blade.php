@@ -1,12 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin_layout')
 
-@section('title')
-    Update movie
-@endsection
+@section('title', 'Main page')
 
 @section('content')
 
-    <h1>Update {{$movie->title}}</h1>
+    <h1>Edit {{$movie->title}}</h1>
 
     <form action="{{route('movies.update', $movie->id)}}" method="post">
         @csrf

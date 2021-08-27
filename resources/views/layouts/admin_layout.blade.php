@@ -6,7 +6,8 @@
     <title>Admin-panel: @yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/admin/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -29,17 +30,12 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
-
-
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="index3.html" class="brand-link">
-            <img src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+            <img src="/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                 style="opacity: .8">
             <span class="brand-text font-weight-light">Admin-Panel</span>
         </a>
 
@@ -59,11 +55,20 @@
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
                         <a href="{{route('home')}}" class="nav-link">
+                            <i class="nav-icon fas  fa-step-backward"></i>
+                            <p>
+                                Exit admin panel
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin_panel')}}" class="nav-link">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Main page
@@ -72,7 +77,7 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-newspaper"></i>
+                            <i class="nav-icon fas fa-film"></i>
                             <p>
                                 Movies
                                 <i class="right fas fa-angle-left"></i>
@@ -80,12 +85,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="./index.html" class="nav-link">
+                                <a href="{{route('movies.index')}}" class="nav-link">
                                     <p>All movies</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('movies.create')}}" class="nav-link">
                                     <p>Add movie</p>
                                 </a>
                             </li>
@@ -102,12 +107,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('categories.index')}}" class="nav-link">
                                     <p>All categories</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('categories.create')}}" class="nav-link">
                                     <p>Add category</p>
                                 </a>
                             </li>
@@ -119,9 +124,9 @@
         </div>
         <!-- /.sidebar -->
     </aside>
-
-    @yield('content')
-
+    <div class="content-wrapper p-3">
+        @yield('content')
+    </div>
 
 
     <!-- Control Sidebar -->
@@ -167,7 +172,8 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/admin/dist/js/pages/dashboard.js"></script>
 
-<script src="https://cdn.tiny.cloud/1/ivg0aq3q2m1wc01fbekno1vm1zh8yfn76h7ebrh69210717r/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/ivg0aq3q2m1wc01fbekno1vm1zh8yfn76h7ebrh69210717r/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
 <script src="/admin/admin.js"></script>
 </body>
 </html>

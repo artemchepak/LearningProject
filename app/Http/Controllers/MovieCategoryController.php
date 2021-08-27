@@ -13,7 +13,7 @@ class MovieCategoryController extends Controller
     public function index()
     {
         $categories = MovieCategory::all();
-        return view('categories.categories', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -21,7 +21,7 @@ class MovieCategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create-category');
+        return view('admin.categories.create');
     }
 
     /**
@@ -44,7 +44,7 @@ class MovieCategoryController extends Controller
     public function edit($id)
     {
         $category = MovieCategory::find($id);
-        return view('categories.edit-category', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -69,11 +69,5 @@ class MovieCategoryController extends Controller
     {
         MovieCategory::find($id)->delete();
         return redirect()->route('categories.index');
-    }
-
-    public function getAllMoviesByCategory($id){
-        $category = MovieCategory::find($id);
-        $movies = $category->movies;
-        return view('movies.all-movies-by-category', compact('movies'));
     }
 }
