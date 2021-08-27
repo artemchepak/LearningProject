@@ -27,8 +27,12 @@
             </ul>
 
             <div class="text-end">
-                <a href="{{route('login')}}" class="text-white mx-3">Login</a>
-                <a href="{{route('register')}}" class="text-white">Registration</a>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="{{route('login')}}" class="nav-link text-white">Login</a></li>
+                    <li><a href="{{route('register')}}" class="nav-link text-white">Registration</a></li>
+                </ul>
+
+
             </div>
         </div>
     </div>
