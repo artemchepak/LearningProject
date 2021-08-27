@@ -15,7 +15,6 @@
             @foreach($movies as $movie)
                 <div class="d-inline-flex m-2">
                     <div class="card" style="width: 20rem;">
-                        <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{$movie->title}}</h5>
                             <p class="card-text">{{$movie->genre}}, {{$movie->release_year}}, {{$movie->country}}</p>

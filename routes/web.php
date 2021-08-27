@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MovieController::class, 'index'])->name('home');
+Route::redirect('/home', '/');
 Route::resource('movies', MovieController::class);
 Route::resource('categories', MovieCategoryController::class);
 Route::get('/movies/category/{id}', [MovieCategoryController::class, 'getAllMoviesByCategory'])->name('movie.by.category');
@@ -36,5 +37,3 @@ Route::get('/test', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
