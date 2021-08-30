@@ -10,14 +10,14 @@
         <thead>
         <tr>
             <th scope="col">Category Name</th>
-            <th scope="col">Actions</th>
+            <th scope="col" class="text-right">Actions</th>
         </tr>
         </thead>
         <tbody>
         @foreach($categories as $category)
             <tr>
                 <td>{{$category->name}}</td>
-                <td>
+                <td class="text-right">
                     <a href="{{route('categories.edit', $category->id)}}" class="btn btn-warning">Edit</a>
                     <form action="{{route('categories.destroy', $category->id)}}" method="post" style="display: inline">
                         @csrf

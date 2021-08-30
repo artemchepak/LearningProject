@@ -12,14 +12,14 @@
         <thead>
         <tr>
             <th scope="col">Category Name</th>
-            <th scope="col">Actions</th>
+            <th scope="col" class="text-end">Actions</th>
         </tr>
         </thead>
         <tbody>
         @foreach($categories as $category)
             <tr>
                 <td>{{$category->name}}</td>
-                <td>
+                <td class="text-end">
                     <a href="{{route('movie.by.category', $category->id)}}" class="btn btn-primary">Movie list</a>
                 </td>
 

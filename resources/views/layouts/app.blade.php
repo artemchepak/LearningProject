@@ -43,11 +43,12 @@
                             </li>
                         @endif
                     @else
-                        @if(\App\Models\User::where('name', \Illuminate\Support\Facades\Auth::user()->name)->first()->roles->first()->name == 'admin')
+                        @can('isAdmin')
                         <li class="nav-item">
                             <a class="nav-link text-white" href="{{ route('admin_panel') }}">Admin panel</a>
                         </li>
-                        @endif
+                        @endcan
+
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle  text-white" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

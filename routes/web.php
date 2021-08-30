@@ -23,9 +23,10 @@ Route::get('/movies/category/{id}', [HomeController::class, 'getAllMoviesByCateg
 Route::get('/movies/{id}', [HomeController::class, 'showMovie'])->name('showMovie');
 Route::get('/categories', [HomeController::class, 'categories'])->name('categories');
 
-Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin_panel')->group(function () {
     Route::get('/', [\App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin_panel');
     Route::resource('movies', MovieController::class);
     Route::resource('categories', MovieCategoryController::class);
 });
 
+Route::view('/test', 'test');
