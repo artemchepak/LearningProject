@@ -47,7 +47,17 @@
                     <img src="/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                    @if(\Illuminate\Support\Facades\Auth::user())
+                        <a href="#" class="d-block">
+                            {{\Illuminate\Support\Facades\Auth::user()->name}}
+                        </a>
+                    @else
+                        <a href="#" class="d-block">
+                            Guest
+                        </a>
+                    @endif
+
+
                 </div>
             </div>
 
@@ -75,49 +85,55 @@
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-film"></i>
-                            <p>
-                                Movies
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('movies.index')}}" class="nav-link">
-                                    <p>All movies</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('movies.create')}}" class="nav-link">
-                                    <p>Add movie</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-align-left"></i>
-                            <p>
-                                Category
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('categories.index')}}" class="nav-link">
-                                    <p>All categories</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{route('categories.create')}}" class="nav-link">
-                                    <p>Add category</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @can('edit movies')
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-film"></i>
+                                <p>
+                                    Movies
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('movies.index')}}" class="nav-link">
+                                        <p>All movies</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('movies.create')}}" class="nav-link">
+                                        <p>Add movie</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+
+                    @can('edit categories')
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-align-left"></i>
+                                <p>
+                                    Category
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('categories.index')}}" class="nav-link">
+                                        <p>All categories</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('categories.create')}}" class="nav-link">
+                                        <p>Add category</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endcan
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

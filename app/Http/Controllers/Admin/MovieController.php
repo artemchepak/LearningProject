@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreMovie;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,10 @@ class MovieController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreMovie $request)
     {
+        $validatedData = $request->validated();
+
         $movie = new Movie();
         $movie->title = $request->input('name');
         $movie->country = $request->input('country');
