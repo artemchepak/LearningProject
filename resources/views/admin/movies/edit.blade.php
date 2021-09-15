@@ -5,7 +5,7 @@
 @section('content')
 
     <h1>Edit {{$movie->title}}</h1>
-
+    <img src="{{asset("storage/$movie->image")}}" alt="" style="max-height: 200px; margin-bottom: 20px">
     <form action="{{route('movies.update', $movie->id)}}" method="post">
         @csrf
         @method('PATCH')
@@ -23,6 +23,9 @@
         </div>
         <div class="mb-2">
             <textarea name="description" id="description" placeholder="Description">{{$movie->description}}</textarea>
+        </div>
+        <div class="mb-2">
+            <input type="file" name="image" id="image">
         </div>
         <div class="mb-2">
             <button type="submit" class="btn btn-success">Submit</button>

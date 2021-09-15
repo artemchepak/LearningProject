@@ -22,8 +22,8 @@
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="{{route('home')}}" class="nav-link px-2 text-white">All movies</a></li>
-                <li><a href="{{route('categories')}}" class="nav-link px-2 text-white">Categories</a></li>
+                <li><a href="{{route('home')}}" class="nav-link px-2 text-white">{{__('All movies')}}</a></li>
+                <li><a href="{{route('categories')}}" class="nav-link px-2 text-white">{{__('Categories')}}</a></li>
             </ul>
 
             <div class="text-end">
@@ -45,7 +45,7 @@
                     @else
                         @can('isAdmin')
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="{{ route('admin_panel') }}">Admin panel</a>
+                            <a class="nav-link text-white" href="{{ route('admin_panel') }}">{{__('Admin panel')}}</a>
                         </li>
                         @endcan
 
@@ -69,6 +69,9 @@
                             </div>
                         </li>
                     @endguest
+                    <li class="nav-item">
+                        <a class="btn btn-warning" href="{{ route('locale') }}">{{__('ru')}}</a>
+                    </li>
                 </ul>
             </div>
         </div>

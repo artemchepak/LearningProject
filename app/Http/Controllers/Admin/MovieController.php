@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreMovie;
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class MovieController extends Controller
 {
@@ -34,13 +36,19 @@ class MovieController extends Controller
     {
         $validatedData = $request->validated();
 
+        $image = $request->file('image');
+        $imagePath = $image->store('movie');
+
         $movie = new Movie();
         $movie->title = $request->input('name');
         $movie->country = $request->input('country');
         $movie->release_year = $request->input('year');
         $movie->genre = $request->input('genre');
         $movie->description = $request->input('description');
+        $movie->image = $imagePath;
         $movie->save();
+
+        Log::debug('Movie added', ['key1' => 1, 'key2' => 2, 'user' => Auth::user()->name]);
 
         return redirect()->route('home');
     }
@@ -90,6 +98,9 @@ class MovieController extends Controller
     public function destroy($id)
     {
         Movie::find($id)->delete();
+
+        Log::alert('Movie deleted', ['movieId' => $id]);
+
         return redirect()->route('home');
     }
 }

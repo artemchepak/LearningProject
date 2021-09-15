@@ -69,7 +69,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+
     }
 
     /**

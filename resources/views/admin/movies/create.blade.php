@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <form action="{{route('movies.store')}}" method="post">
+    <form action="{{route('movies.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="mb-2">
             <input class="form-label" type="text" name="name" id="name" placeholder="Movie title">
@@ -32,6 +32,9 @@
         </div>
         <div class="mb-2">
             <textarea name="description" id="description" placeholder="Description"></textarea>
+        </div>
+        <div class="mb-2">
+            <input type="file" name="image" id="image">
         </div>
         <div class="mb-2">
             <button type="submit" class="btn btn-success">Submit</button>

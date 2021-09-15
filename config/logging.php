@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
@@ -37,7 +37,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['daily'],
             'ignore_exceptions' => false,
         ],
 
