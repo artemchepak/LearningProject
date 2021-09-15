@@ -80,12 +80,16 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $image = $request->file('image');
+        $imagePath = $image->store('movie');
+
         $movie = Movie::find($id);
         $movie->title = $request->input('name');
         $movie->country = $request->input('country');
         $movie->release_year = $request->input('year');
         $movie->genre = $request->input('genre');
         $movie->description = $request->input('description');
+        $movie->image = $imagePath;
         $movie->save();
 
         return view('movies.one-movie', compact('movie'));

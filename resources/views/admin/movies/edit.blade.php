@@ -6,7 +6,7 @@
 
     <h1>Edit {{$movie->title}}</h1>
     <img src="{{asset("storage/$movie->image")}}" alt="" style="max-height: 200px; margin-bottom: 20px">
-    <form action="{{route('movies.update', $movie->id)}}" method="post">
+    <form action="{{route('movies.update', $movie->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="mb-2">
